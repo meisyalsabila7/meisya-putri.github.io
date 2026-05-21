@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meisya Salsabila — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --bg:#F5F0E8;--bg2:#EDE6D6;--bg3:#E4DBC8;
+  --brown:#5C3D2E;--brown2:#8B5E3C;
+  --green:#3A5A40;--green2:#588157;--green3:#A3B18A;--green4:#DAE3C8;
+  --cream:#FDF8F0;--text:#2C1F14;--text2:#6B4F3A;--gold:#C9A84C;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:1000px;margin:0 auto;padding:0 2rem}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,240,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--bg3);padding:0.85rem 0}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;color:var(--brown);font-weight:700;text-decoration:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:12px;color:var(--text2);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--green)}
+.hero{padding:8rem 0 5rem;border-bottom:1px solid var(--bg3)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:4rem;align-items:center}
+.eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);font-weight:500;margin-bottom:16px}
+.hero-name{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:var(--brown);line-height:1.1;margin-bottom:10px}
+.hero-role{font-size:13px;color:var(--text2);font-weight:400;margin-bottom:8px}
+.hero-desc{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:24px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.tag{font-size:11px;padding:5px 13px;border-radius:20px;background:var(--green4);color:var(--green);font-weight:500}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font-size:12px;padding:9px 20px;border-radius:8px;border:1.5px solid var(--green2);color:var(--green);background:transparent;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:all 0.2s}
+.btn:hover{background:var(--green);color:var(--cream);border-color:var(--green)}
+.btn-filled{background:var(--green);color:var(--cream);border-color:var(--green)}
+.btn-filled:hover{background:var(--green2)}
+.stats-card{background:var(--cream);border-radius:20px;padding:1.75rem;border:1px solid var(--bg3)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.stat{background:var(--bg2);border-radius:12px;padding:1.1rem;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--brown);display:block}
+.stat-label{font-size:10px;color:var(--text2);margin-top:3px}
+.stack-label{font-size:10px;color:var(--text2);margin-bottom:8px;letter-spacing:0.08em;text-transform:uppercase}
+.stack-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;padding:4px 10px;border-radius:6px;background:var(--brown);color:var(--cream);font-weight:500}
+section{padding:4.5rem 0;border-bottom:1px solid var(--bg3)}
+section:last-of-type{border-bottom:none}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:2.5rem}
+.section-num{font-family:'Playfair Display',serif;font-size:44px;color:var(--bg3);font-weight:700;line-height:1}
+.section-title{font-family:'Playfair Display',serif;font-size:26px;color:var(--brown);font-weight:500}
+.exp-item{background:var(--cream);border-radius:14px;padding:1.75rem;border:1px solid var(--bg3);margin-bottom:14px;transition:border-color 0.2s}
+.exp-item:hover{border-color:var(--green3)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;gap:12px}
+.exp-role{font-size:15px;font-weight:500;color:var(--brown)}
+.exp-period{font-size:11px;color:var(--green2);font-weight:500;background:var(--green4);padding:4px 10px;border-radius:6px;white-space:nowrap;flex-shrink:0}
+.exp-company{font-size:12px;color:var(--text2);margin-bottom:14px}
+.exp-points{list-style:none;display:grid;gap:5px}
+.exp-points li{font-size:12px;color:var(--text2);line-height:1.7;padding-left:16px;position:relative}
+.exp-points li::before{content:"→";position:absolute;left:0;color:var(--green2);font-size:10px;top:4px}
+.edu-item{background:var(--cream);border-radius:14px;padding:1.5rem;border:1px solid var(--bg3);margin-bottom:12px;display:flex;gap:18px;align-items:flex-start;transition:border-color 0.2s}
+.edu-item:hover{border-color:var(--green3)}
+.edu-icon{width:44px;height:44px;border-radius:12px;background:var(--green4);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px}
+.edu-title{font-size:14px;font-weight:500;color:var(--brown);margin-bottom:3px}
+.edu-sub{font-size:12px;color:var(--text2);margin-bottom:4px}
+.edu-thesis{font-size:11px;color:var(--text2);font-style:italic;margin-bottom:7px;line-height:1.6}
+.edu-meta{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.edu-year{font-size:11px;color:var(--green2);font-weight:500}
+.edu-gpa{font-size:11px;padding:3px 9px;border-radius:5px;background:var(--green4);color:var(--green);font-weight:500}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cert-card{background:var(--cream);border-radius:14px;border:1px solid var(--bg3);overflow:hidden;transition:all 0.2s;display:flex;flex-direction:column}
+.cert-card:hover{border-color:var(--green3);transform:translateY(-2px)}
+.cert-top{padding:1.4rem 1.4rem 1rem}
+.cert-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
+.cert-icon-ibm{background:#E6F1FB}
+.cert-icon-google{background:#EAF3DE}
+.cert-icon-bisa{background:#FAEEDA}
+.cert-name{font-size:13px;font-weight:500;color:var(--brown);margin-bottom:4px;line-height:1.4}
+.cert-issuer{font-size:11px;color:var(--text2);margin-bottom:6px}
+.cert-year{font-size:10px;color:var(--green2);font-weight:500;margin-bottom:12px}
+.cert-desc{font-size:11px;color:var(--text2);line-height:1.6}
+.cert-footer{padding:0.85rem 1.4rem;background:var(--bg2);margin-top:auto}
+.cert-btn{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:var(--green);text-decoration:none;background:var(--green4);padding:6px 14px;border-radius:6px;border:1px solid var(--green3);transition:all 0.2s;width:100%;justify-content:center}
+.cert-btn:hover{background:var(--green);color:var(--cream);border-color:var(--green)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.skill-group{background:var(--cream);border-radius:14px;padding:1.4rem;border:1px solid var(--bg3)}
+.skill-group-title{font-size:11px;font-weight:500;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.skill-chips{display:flex;flex-wrap:wrap;gap:7px}
+.skill-chip{font-size:11px;padding:5px 11px;border-radius:20px;background:var(--bg2);color:var(--text2);border:1px solid var(--bg3)}
+.skill-chip.hl{background:var(--green4);color:var(--green);border-color:var(--green3)}
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem}
+.filter-tab{font-size:12px;padding:7px 16px;border-radius:20px;border:1px solid var(--bg3);background:transparent;color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.filter-tab:hover{border-color:var(--green3);color:var(--green)}
+.filter-tab.active{background:var(--green);color:var(--cream);border-color:var(--green)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{background:var(--cream);border-radius:14px;border:1px solid var(--bg3);overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-3px);border-color:var(--green3);box-shadow:0 10px 28px rgba(58,90,64,0.08)}
+
+.pcard-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--bg3);display:block}
+.pcard-preview{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--bg3);padding:1rem}
+.pcard-preview-text{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--brown);text-align:center;line-height:1.2}
+.pcard-preview-sub{font-size:10px;color:var(--text2);text-align:center;margin-top:3px}
+
+.pcard-body{padding:1rem;flex:1;display:flex;flex-direction:column}
+.pcard-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.pcard-year{font-size:10px;color:var(--green2);font-weight:500}
+.ptype{font-size:10px;padding:2px 8px;border-radius:4px;font-weight:500}
+.ptype-data{background:#EAF3DE;color:#3B6D11}
+.ptype-uiux{background:#E6F1FB;color:#185FA5}
+.ptype-fullstack{background:#EEEDFE;color:#3C3489}
+.pcard-title{font-size:13px;font-weight:500;color:var(--brown);margin-bottom:5px;line-height:1.3}
+.pcard-desc{font-size:11px;color:var(--text2);line-height:1.6;margin-bottom:10px;flex:1}
+.pcard-tools{display:flex;gap:5px;flex-wrap:wrap}
+.ptool{font-size:10px;padding:3px 8px;border-radius:5px;background:var(--bg2);color:var(--text2);border:1px solid var(--bg3)}
+.pcard-footer{padding:0.75rem 1rem;background:var(--bg2);display:flex;justify-content:space-between;align-items:center}
+.pcard-link{font-size:11px;color:var(--green);font-weight:500;text-decoration:none}
+.pcard-link:hover{text-decoration:underline}
+.pbadge{font-size:9px;padding:2px 7px;border-radius:4px}
+.pbadge-green{background:var(--green4);color:var(--green)}
+.pbadge-brown{background:#F5E6D8;color:var(--brown)}
+.pbadge-gold{background:#FDF3D6;color:#7A5C10}
+.prev-fixom{background:linear-gradient(135deg,#C8F5C8,#90E090)}
+.prev-jastipin{background:linear-gradient(135deg,#F0F0F0,#DCDCDC)}
+.prev-villa{background:linear-gradient(135deg,#D8F0D8,#B8E0B8)}
+.prev-ecom{background:linear-gradient(135deg,#DAE3C8,#BDD0A8)}
+.prev-luxury{background:linear-gradient(135deg,#FDF3D6,#F5E09A)}
+.prev-bijaksara{background:linear-gradient(135deg,#FFF0C0,#FFE080)}
+.prev-kkp{background:linear-gradient(135deg,#D0E8FF,#A8CCF0)}
+.prev-heyskin{background:linear-gradient(135deg,#FFE5E5,#FFB8B8)}
+.prev-amthrift{background:linear-gradient(135deg,#E8F0E8,#C8DCC8)}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.contact-card{background:var(--cream);border-radius:14px;padding:1.1rem 1.4rem;border:1px solid var(--bg3);display:flex;gap:12px;align-items:center;text-decoration:none;transition:all 0.2s}
+.contact-card:hover{border-color:var(--green2);background:var(--green4)}
+.contact-icon{width:38px;height:38px;border-radius:9px;background:var(--green4);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-label{font-size:10px;color:var(--text2)}
+.contact-value{font-size:13px;font-weight:500;color:var(--brown)}
+footer{padding:2.5rem 0;text-align:center;border-top:1px solid var(--bg3)}
+.footer-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--brown);margin-bottom:6px}
+.footer-sub{font-size:12px;color:var(--text2)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-grid{animation:fadeUp 0.7s ease both}
+.fade-up{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.fade-up.visible{opacity:1;transform:none}
+@media(max-width:768px){
+  .hero-grid,.skills-grid,.cert-grid,.contact-grid,.portfolio-grid{grid-template-columns:1fr}
+  .hero-name{font-size:34px}
+  .section-num{font-size:34px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Meisya Salsabila I.P.</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Pengalaman</a></li>
+      <li><a href="#education">Pendidikan</a></li>
+      <li><a href="#certifications">Sertifikasi</a></li>
+      <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#portfolio">Portofolio</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Portofolio</div>
+        <h1 class="hero-name">Meisya Salsabila Indrijo Putri</h1>
+        <p class="hero-role">Network & System Operations Engineer · Data Analytics · UI/UX Design</p>
+        <p class="hero-desc">Profesional dengan latar belakang teknis yang kuat di bidang sistem informasi, analisis data, dan operasi sistem, 
+          berpengalaman dalam pemantauan, validasi, dan pelaporan dalam lingkungan terstruktur. Terbiasa bekerja dengan tim lintas fungsi, 
+          memastikan akurasi data, keandalan sistem, dan peningkatan proses berkelanjutan. Analitis, berorientasi pada detail, 
+          dan mudah beradaptasi dengan peran teknis maupun operasional.</p>
+
+        <div class="hero-tags">
+          <span class="tag">MRTG Cacti</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Python</span>
+          <span class="tag">Test Documentation</span>
+          <span class="tag">Data Analytics</span>
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">Microsoft 365</span>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#portfolio" class="btn btn-filled">Lihat portofolio</a>
+          <a href="https://public.tableau.com/app/profile/meisya.putri/vizzes" target="_blank" class="btn">Tableau Public</a>
+          <a href="mailto:meisyasalsa7@gmail.com" class="btn">Hubungi saya</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="experience">
+    <div class="section-header fade-up">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Pengalaman kerja</h2>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Data & Operations Analyst</div>
+          <div class="exp-company">PT. Telkom Infrastruktur Indonesia (via PT. Infomedia Solusi Humanika)</div>
+        </div>
+        <span class="exp-period">Agu 2024 – sekarang</span>
+      </div>
+      <ul class="exp-points">
+        <li>Menganalisis data operasional dari 200+ IP nodes untuk memonitor performa layanan, ketersediaan, dan tren sistem</li>
+        <li>Melakukan validasi data dan quality check pada logs, traffic data, dan system metrics untuk memastikan akurasi pelaporan</li>
+        <li>Berkolaborasi lintas tim Network, Infrastructure, dan Engineering untuk menyelaraskan insight data dengan kebutuhan operasional</li>
+      </ul>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">UI Design & Frontend Developer Intern</div>
+          <div class="exp-company">PT. Telekomunikasi Indonesia</div>
+        </div>
+        <span class="exp-period">Jul – Okt 2023</span>
+      </div>
+      <ul class="exp-points">
+        <li>Melakukan UX research (survei dan wawancara) dengan 20+ pengguna internal untuk mengidentifikasi pain points sistem</li>
+        <li>Redesign UI platform FIXOM untuk monitoring infrastruktur fiber optic Telkom Regional V</li>
+        <li>Mengembangkan prototype responsif dan komponen front-end (HTML/CSS) sebagai bagian dari iterasi produk</li>
+        <li>Menyusun dokumentasi desain dan technical handover untuk mendukung pengembangan selanjutnya</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-header fade-up">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Pendidikan</h2>
+    </div>
+
+    <div class="edu-item fade-up">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-title">Master of Technology Management</div>
+        <div class="edu-sub">Institut Teknologi Sepuluh Nopember (ITS)</div>
+        <div class="edu-thesis">Thesis: Evaluation of Information Technology Governance of FiXOM Application Using COBIT 2019 Framework for Information Security Improvement</div>
+        <div class="edu-meta">
+          <span class="edu-year">Feb 2025 – 2026</span>
+          <span class="edu-gpa">GPA 3.75 / 4.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item fade-up">
+      <div class="edu-icon">📚</div>
+      <div>
+        <div class="edu-title">Bachelor's in Informatics</div>
+        <div class="edu-sub">Institut Teknologi Sepuluh Nopember (ITS)</div>
+        <div class="edu-thesis">Thesis: Predicting the Number of Citations with Artificial Neural Networks Using Novelty Factors, Bibliometrics, and Academic Networks</div>
+        <div class="edu-meta">
+          <span class="edu-year">Sep 2020 – Agu 2024</span>
+          <span class="edu-gpa">GPA 3.45 / 4.00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-header fade-up">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Sertifikasi</h2>
+    </div>
+    <div class="cert-grid fade-up">
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon-wrap cert-icon-ibm">🏆</div>
+          <div class="cert-name">IBM Data Analyst Professional Certificate</div>
+          <div class="cert-issuer">IBM · Coursera</div>
+          <div class="cert-year">Maret 2025</div>
+          <div class="cert-desc">Meliputi data analysis, visualisasi, SQL, Python, dan tools analytics seperti Excel dan Cognos.</div>
+        </div>
+        <div class="cert-footer">
+          <a href="https://coursera.org/verify/professional-cert/1XBNWIZ6V16A" class="cert-btn">
+            🔗 Lihat sertifikat
+          </a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon-wrap cert-icon-google">📋</div>
+          <div class="cert-name">Google Project Management: Professional Certificate</div>
+          <div class="cert-issuer">Google · Coursera</div>
+          <div class="cert-year">Februari 2025</div>
+          <div class="cert-desc">Meliputi project planning, risk management, Agile, Scrum, dan stakeholder communication.</div>
+        </div>
+        <div class="cert-footer">
+          <a href="https://coursera.org/verify/professional-cert/A2922X7K8JZS" class="cert-btn">
+            🔗 Lihat sertifikat
+          </a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon-wrap cert-icon-bisa">🎨</div>
+          <div class="cert-name">UI/UX Design</div>
+          <div class="cert-issuer">Bisa AI Academy</div>
+          <div class="cert-year">Juni 2023</div>
+          <div class="cert-desc">Meliputi user research, wireframing, prototyping, usability testing, dan desain antarmuka menggunakan Figma.</div>
+        </div>
+        <div class="cert-footer">
+          <a href="https://drive.google.com/file/d/1w6UQiN1zKTYRvN6tfAFm8wVoRsqL_s-N/view?usp=sharing" class="cert-btn">
+            🔗 Lihat sertifikat
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header fade-up">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Keahlian teknis</h2>
+    </div>
+    <div class="skills-grid fade-up">
+      <div class="skill-group">
+        <div class="skill-group-title">Programming & Data</div>
+        <div class="skill-chips">
+          <span class="skill-chip hl">Python</span>
+          <span class="skill-chip hl">SQL (MySQL)</span>
+          <span class="skill-chip hl">Tableau</span>
+          <span class="skill-chip hl">Data Analysis</span>
+          <span class="skill-chip">Automation Scripting</span>
+          <span class="skill-chip">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">UI/UX & Design</div>
+        <div class="skill-chips">
+          <span class="skill-chip hl">Figma</span>
+          <span class="skill-chip hl">Adobe XD</span>
+          <span class="skill-chip hl">UX Research</span>
+          <span class="skill-chip hl">Usability Testing</span>
+          <span class="skill-chip">Prototyping</span>
+          <span class="skill-chip">HTML & CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Quality Assurance & Systems</div>
+        <div class="skill-chips">
+          <span class="skill-chip hl">System Validation</span>
+          <span class="skill-chip hl">Log Analysis</span>
+          <span class="skill-chip hl">Network Monitoring</span>
+          <span class="skill-chip">RCA</span>
+          <span class="skill-chip">Cacti</span>
+          <span class="skill-chip">phpMyAdmin</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Tools & Collaboration</div>
+        <div class="skill-chips">
+          <span class="skill-chip hl">Microsoft 365</span>
+          <span class="skill-chip hl">Google Workspace</span>
+          <span class="skill-chip">Notion</span>
+          <span class="skill-chip">Trello</span>
+          <span class="skill-chip">VS Code</span>
+          <span class="skill-chip">Tableau Public</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-header fade-up">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Portofolio</h2>
+    </div>
+
+    <div class="filter-tabs fade-up">
+      <button class="filter-tab active" onclick="filterProjects(this,'all')">Semua (8)</button>
+      <button class="filter-tab" onclick="filterProjects(this,'data')">Data Analytics (2)</button>
+      <button class="filter-tab" onclick="filterProjects(this,'uiux')">UI/UX Design (6)</button>
+    </div>
+
+    <div class="portfolio-grid fade-up">
+      <div class="pcard" data-type="data">
+        <img src="images/luxury.png" alt="Luxury Goods Market Insight" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2024</span>
+            <span class="ptype ptype-data">Data Analytics</span>
+          </div>
+          <div class="pcard-title">Luxury Goods Market Insight</div>
+          <div class="pcard-desc">Analisis 70+ perusahaan luxury goods global — revenue, market cap, dan tren KPI 2013–2023 berdasarkan data Statista. Tugas akhir S2.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Tableau</span>
+            <span class="ptool">Excel</span>
+            <span class="ptool">Statista</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://public.tableau.com/views/FinalProjectSTI/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="pcard-link">Lihat dashboard →</a>
+          <span class="pbadge pbadge-gold">Tugas S2</span>
+        </div>
+      </div>
+
+      <div class="pcard" data-type="data">
+        <img src="images/e-commerce.png" alt="E-commerce Sales Analysis" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2024 – 2025</span>
+            <span class="ptype ptype-data">Data Analytics</span>
+          </div>
+          <div class="pcard-title">Analisis Performa Penjualan E-commerce</div>
+          <div class="pcard-desc">Eksplorasi 99K+ transaksi Olist Brazil dengan PostgreSQL dan Tableau — tren revenue, segmentasi pelanggan, dan kategori produk.</div>
+          <div class="pcard-tools">
+            <span class="ptool">PostgreSQL</span>
+            <span class="ptool">Tableau</span>
+            <span class="ptool">SQL</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://public.tableau.com/views/EcommerceSalesAnalysis_17790812171360/DashboardPenjualanE-commerce?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="pcard-link">Lihat dashboard →</a>
+          <span class="pbadge pbadge-green">Selesai</span>
+        </div>
+      </div>
+
+      <!-- <div class="pcard" data-type="uiux">
+        <img src="images/fixom.png" alt="FIXOM Telkom" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2023</span>
+            <span class="ptype ptype-fullstack">UI/UX + Frontend</span>
+          </div>
+          <div class="pcard-title">FIXOM — Fiber eXcellent Operation Maintenance</div>
+          <div class="pcard-desc">Platform monitoring infrastruktur fiber optic PT Telkom Indonesia Regional V untuk mendeteksi gangguan jaringan secara real-time.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">HTML/CSS</span>
+            <span class="ptool">Enterprise</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/c3CV9tAQddI7IC7vRmwYbY/UI-FIXOM_Telkom?node-id=1201-2574&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-gold">Telkom</span>
+        </div>
+      </div> -->
+
+      <div class="pcard" data-type="uiux">
+        <img src="images/jastipin.png" alt="Jastipin Shopping App" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2023</span>
+            <span class="ptype ptype-uiux">UI/UX Design</span>
+          </div>
+          <div class="pcard-title">Jastipin — Shopping Mobile App</div>
+          <div class="pcard-desc">Aplikasi mobile untuk layanan jasa titip internasional dengan pemesanan, tracking pengiriman, dan interaksi Jastiper yang aman dan transparan.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">Mobile</span>
+            <span class="ptool">E-commerce</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/1SEww4jd1mMKYcrqizJajG/Jastipin---Shopping-Mobile-App?node-id=134-573&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-green">Mobile</span>
+        </div>
+      </div>
+
+      <div class="pcard" data-type="uiux">
+        <img src="images/villa.png" alt="Villa Booking App" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2023</span>
+            <span class="ptype ptype-uiux">UI/UX Design</span>
+          </div>
+          <div class="pcard-title">Villa Booking Mobile App</div>
+          <div class="pcard-desc">Aplikasi pemesanan villa eksklusif dengan pencarian canggih, pembayaran aman, dan konfirmasi instan untuk pengalaman akomodasi yang personal.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">Mobile</span>
+            <span class="ptool">Travel</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/QrqLJB5sOK7fVmfvhLgbkV/Aplikasi-Pemesanan-Villa?node-id=93-737&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-green">Mobile</span>
+        </div>
+      </div>
+
+      <div class="pcard" data-type="uiux">
+        <img src="images/bijaksara.png" alt="Bijaksara Learning Web" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2022</span>
+            <span class="ptype ptype-uiux">UI/UX Design</span>
+          </div>
+          <div class="pcard-title">Bijaksara — Java Language Learning Web</div>
+          <div class="pcard-desc">Platform pembelajaran bahasa Jawa online dengan modul interaktif, kuis aksara Jawa, forum diskusi, dan riwayat belajar tersimpan.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">Web App</span>
+            <span class="ptool">EdTech</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/Rpk1gpVFj24wGOlhNM3YBy/BIJAKSARA---Java-Language-Learning-App?node-id=303-54&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-brown">Web</span>
+        </div>
+      </div>
+
+      <div class="pcard" data-type="uiux">
+        <img src="images/kkp.png" alt="KKP Website" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2022</span>
+            <span class="ptype ptype-uiux">UI/UX Design</span>
+          </div>
+          <div class="pcard-title">Kementerian Kelautan & Perikanan Website</div>
+          <div class="pcard-desc">Website manajemen data CRUD untuk Kementerian Kelautan dan Perikanan. Antarmuka sederhana untuk pengelolaan informasi maritim secara efisien.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">Web App</span>
+            <span class="ptool">Government</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/umkdE2K0MlzW6TrH6rH1Ct/Web-Programming-Final-Project?node-id=202-2&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-brown">Web</span>
+        </div>
+      </div>
+
+      <div class="pcard" data-type="uiux">
+        <img src="images/heyskin.png" alt="Heyskin Beauty App" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2021</span>
+            <span class="ptype ptype-uiux">UI/UX Design</span>
+          </div>
+          <div class="pcard-title">Heyskin — Beauty Shopping Mobile App</div>
+          <div class="pcard-desc">Aplikasi belanja kecantikan dengan katalog produk lengkap, ulasan pengguna, perbandingan harga, dan pembelian langsung dalam satu platform.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">Mobile</span>
+            <span class="ptool">Beauty</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/edxBgdIYpTjeaJgbu9Hh6s/Heyskin---Beauty-Shopping-App?node-id=1111-223&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-green">Mobile</span>
+        </div>
+      </div>
+
+      <div class="pcard" data-type="uiux">
+        <img src="images/amthrift.png" alt="AM Thrift Clothing Store" class="pcard-img">
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-year">2021</span>
+            <span class="ptype ptype-uiux">UI/UX Design</span>
+          </div>
+          <div class="pcard-title">AM Thrift — Clothing Store Website</div>
+          <div class="pcard-desc">Website toko pakaian thrift modern dan ramah lingkungan. Pilihan pakaian pria, wanita, anak dengan tampilan user-friendly dan harga terjangkau.</div>
+          <div class="pcard-tools">
+            <span class="ptool">Figma</span>
+            <span class="ptool">Web App</span>
+            <span class="ptool">Fashion</span>
+          </div>
+        </div>
+        <div class="pcard-footer">
+          <a href="https://www.figma.com/design/exqoEANc2JKzNpr7AGKyCq/AM-Thrift---Clothing-Store-App?node-id=704-95&t=EgThBxxdYeHT6kug-1" target="_blank" class="pcard-link">Lihat di Figma →</a>
+          <span class="pbadge pbadge-brown">Web</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header fade-up">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Mari terhubung</h2>
+    </div>
+    <div class="contact-grid fade-up">
+      <a href="https://www.linkedin.com/in/meisyasalsabila/" target="_blank" class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-value">Meisya Salsabila</div></div>
+      </a>
+      <a href="mailto:meisyasalsa7@gmail.com" class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div><div class="contact-label">Email</div><div class="contact-value">meisyasalsa7@gmail.com</div></div>
+      </a>
+      <a href="https://public.tableau.com/app/profile/meisya.putri/vizzes" target="_blank" class="contact-card">
+        <div class="contact-icon">📊</div>
+        <div><div class="contact-label">Tableau Public</div><div class="contact-value">meisya.putri</div></div>
+      </a>
+      <!-- <a href="https://www.figma.com/@meisya" target="_blank" class="contact-card">
+        <div class="contact-icon">🎨</div>
+        <div><div class="contact-label">Figma Community</div><div class="contact-value">@meisya</div></div>
+      </a> -->
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-name">Meisya Salsabila Indrijo Putri</div>
+    <div class="footer-sub">Data & Opeational Analyst · Surabaya, Indonesia · 2025</div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+function filterProjects(btn, type) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.type === type) ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>
